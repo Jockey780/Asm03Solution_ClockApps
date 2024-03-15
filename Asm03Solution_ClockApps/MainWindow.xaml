@@ -1,0 +1,41 @@
+﻿<Window x:Class="Asm03Solution_ClockApps.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Asm03Solution_ClockApps"
+        mc:Ignorable="d"
+        Title="Alarm Clock Timer" Height="450" Width="500"
+        WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded">
+    <Grid>
+        <!-- Label "ALARM CLOCK" -->
+        <Label Content="ALARM CLOCK" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="30" Margin="0,10,0,0"/>
+
+        <!-- Hour, Minute Labels -->
+        <Label Content="Hour:" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Margin="26,246,0,0"/>
+        <Label Content="Minute:" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Margin="26,307,0,0"/>
+
+        <!-- Rectangle for displaying time -->
+        <Rectangle Width="377" Height="78" Fill="White" Stroke="Black" StrokeThickness="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="55,100,0,0"/>
+
+        <!-- Time Labels -->
+        <Label x:Name="lb_Hour" Content="00" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="35" Margin="76,110,0,0"/>
+        <Label x:Name="lb_Minute" Content="00" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="35" Margin="0,110,0,0"/>
+        <Label x:Name="lb_Second" Content="00" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="35" Margin="360,111,0,0"/>
+
+        <!-- Colon Labels -->
+        <Label Content=":" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="25" Margin="159,117,0,0"/>
+        <Label Content=":" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="25" Margin="318,117,0,0"/>
+        
+        <!-- Show time left label-->
+        <Label x:Name="lb_TimeLeft" Content="" HorizontalAlignment="Center" Margin="0,368,0,0" VerticalAlignment="Top" Width="321"/>
+       
+        <!-- Hour and Minute ComboBoxes -->
+        <ComboBox x:Name="cb_Hour" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="135,252,0,0"/>
+        <ComboBox x:Name="cb_Minute" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="135,315,0,0"/>
+
+        <!-- Set Alarm Button -->
+        <Button x:Name="btn_SetAlarm" Content="Set Alarm" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="84" Margin="318,277,0,0" Click="btn_SetAlarm_Click"/>
+    </Grid>
+</Window>
