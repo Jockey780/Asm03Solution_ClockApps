@@ -19,6 +19,8 @@ namespace Asm03Solution_ClockApps
             InitializeComponent();
         }
 
+        private CancellationTokenSource cts;
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             // Điền số giờ từ 0 đến 23 vào ComboBox
@@ -77,12 +79,19 @@ namespace Asm03Solution_ClockApps
             lb_TimeLeft.Content = $"Your time left before alarm: {countdownTime / 3600:00}:{(countdownTime / 60) % 60:00}:{countdownTime % 60:00}";
             lb_TimeLeft.Visibility = Visibility.Visible;
 
-            // Tạo và khởi động thread đếm ngược
-            Thread countdownThread = new Thread(() => Countdown(countdownTime));
-            countdownThread.Start();
+            if (cts != null)
+            {
+                cts.Cancel();
+                cts = null;
+            }
+
+            // Tạo và khởi động hoạt động đếm ngược mới
+            cts = new CancellationTokenSource();
+            var token = cts.Token;
+            Task.Run(() => Countdown(countdownTime, token), token);
         }
 
-        private void Countdown(int countdownTime)
+        private async Task Countdown(int countdownTime, CancellationToken token)
         {
             while (countdownTime > 0)
             {
@@ -100,14 +109,20 @@ namespace Asm03Solution_ClockApps
                 // Giảm thời gian còn lại
                 countdownTime--;
 
-                // Dừng thread trong 1 giây
-                Thread.Sleep(1000);
+                // Dừng task trong 1 giây
+                await Task.Delay(1000);
+
+                if (token.IsCancellationRequested)
+                {
+                    return;
+                }
             }
 
-            // Khi thời gian còn lại là 0, hiển thị thông báo hoặc phát âm thanh
             Dispatcher.Invoke(() =>
             {
-                MessageBox.Show("Time's up!");
+                lb_TimeLeft.Visibility = Visibility.Hidden;
+                var messageBox = new CustomMessageBox();
+                messageBox.Show();
             });
         }
     }
