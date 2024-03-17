@@ -17,7 +17,9 @@
         <Label Content="Minute:" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Margin="26,280,0,0"/>
 
         <!-- Rectangle for displaying time -->
-        <Rectangle Width="377" Height="78" Fill="White" Stroke="Black" StrokeThickness="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="55,100,0,0"/>
+        <Rectangle Width="377" Height="78" Fill="White" Stroke="Black" StrokeThickness="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="55,100,0,0">
+
+        </Rectangle>
 
         <!-- Time Labels -->
         <Label x:Name="lb_Hour" Content="00" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="35" Margin="76,110,0,0"/>
@@ -27,15 +29,21 @@
         <!-- Colon Labels -->
         <Label Content=":" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="25" Margin="159,117,0,0"/>
         <Label Content=":" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="25" Margin="318,117,0,0"/>
-        
+
         <!-- Show time left label-->
-        <Label x:Name="lb_TimeLeft" Content="" HorizontalAlignment="Center" Margin="0,368,0,0" VerticalAlignment="Top" Width="321"/>
-       
+        <Label x:Name="lb_TimeLeft" Content="" HorizontalAlignment="Center" Margin="0,342,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="321"/>
+
         <!-- Hour and Minute ComboBoxes -->
         <ComboBox x:Name="cb_Hour" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="130,225,0,0"/>
         <ComboBox x:Name="cb_Minute" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="130,286,0,0"/>
 
         <!-- Set Alarm Button -->
-        <Button x:Name="btn_SetAlarm" Content="Set Alarm" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="84" Margin="318,247,0,0" Click="btn_SetAlarm_Click"/>
+        <Button x:Name="btn_SetAlarm" Content="Set Alarm" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="84" Margin="318,247,0,0" Click="btn_SetAlarm_Click">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="Blue"/>
+                </Style>
+            </Button.Style>
+        </Button>
     </Grid>
 </Window>

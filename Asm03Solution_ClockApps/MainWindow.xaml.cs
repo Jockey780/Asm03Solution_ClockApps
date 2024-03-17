@@ -36,7 +36,7 @@ namespace Asm03Solution_ClockApps
             }
 
             // Khởi tạo thread cập nhật thời gian
-            Thread timeThread = new Thread(UpdateTime);
+            Thread timeThread = new Thread(UpdateTime); //Thread thứ 1
             timeThread.Start();
         }
         private void UpdateTime()
@@ -88,7 +88,7 @@ namespace Asm03Solution_ClockApps
             // Tạo và khởi động hoạt động đếm ngược mới
             cts = new CancellationTokenSource();
             var token = cts.Token;
-            Task.Run(() => Countdown(countdownTime, token), token);
+            Task.Run(() => Countdown(countdownTime, token), token); //Thread thứ 2
         }
 
         private async Task Countdown(int countdownTime, CancellationToken token)
@@ -106,7 +106,6 @@ namespace Asm03Solution_ClockApps
                     lb_TimeLeft.Content = $"Your time left before alarm: {hour:00}:{minute:00}:{second:00}";
                 });
 
-                // Giảm thời gian còn lại
                 countdownTime--;
 
                 // Dừng task trong 1 giây
