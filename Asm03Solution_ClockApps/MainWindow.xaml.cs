@@ -45,7 +45,7 @@ namespace Asm03Solution_ClockApps
             {
                 // Lấy thời gian hiện tại
                 DateTime now = DateTime.Now;
-                Dispatcher.Invoke(() =>
+                Dispatcher.BeginInvoke(() =>
                 {
                     lb_Hour.Content = now.Hour.ToString("00");
                     lb_Minute.Content = now.Minute.ToString("00");
@@ -123,6 +123,11 @@ namespace Asm03Solution_ClockApps
                 var messageBox = new CustomMessageBox();
                 messageBox.Show();
             });
+        }
+
+        private void MainWindow_Closed(object sender, EventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

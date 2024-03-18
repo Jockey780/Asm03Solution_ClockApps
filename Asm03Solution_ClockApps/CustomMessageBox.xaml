@@ -9,7 +9,7 @@
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
-        Title="Alarm" Height="150" Width="300">
+        Title="Alarm" Height="150" Width="215">
     <Grid>
         <Label Content="Wakey wakey, Time to wake up!" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,35,0,0"/>
         <Button Content="Close" HorizontalAlignment="Center" VerticalAlignment="Top" Click="OkButton_Click" Margin="0,72,0,0" Width="49" Height="20"/>
