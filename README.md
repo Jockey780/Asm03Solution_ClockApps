@@ -1,6 +1,12 @@
+Link Youtube: https://youtu.be/yKK54Umbiro 
+
+
 Mô tả bài chi tiết Assigment 3 Viết ứng dụng đồng hồ đếm ngược sử dụng WPF
+
 	Lê Hoàng Minh Nhật 
+ 
 	SE161790 
+ 
 	SĐT: 0338290661
 
 Các chức năng đã thực hiện:
